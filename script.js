@@ -9,22 +9,23 @@ const searchByLocationbtn = document.getElementById("form_btn");
 const searchByLocation = async () => {
   // main: location, checkin, checkout, adults
   // optional: children, infants, pets, page, currency
-  const url =
-    "https://airbnb13.p.rapidapi.com/search-location?location=Paris&checkin=2023-09-16&checkout=2023-09-17&adults=1&children=0&infants=0&pets=0&page=1&currency=USD";
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "2b98731217msh38a276ca44e58efp1a5f32jsn8dfe9521993a",
-      "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
-    },
-  };
+ 
+  const url = 'https://airbnb13.p.rapidapi.com/autocomplete?query=paris';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'cbd6f82d8fmsh52b9f0475cc3716p19d79djsn4702f1ec7314',
+		'X-RapidAPI-Host': 'airbnb13.p.rapidapi.com'
+	}
+};
 
-  try {
-    const response = await fetch(url, options);
-    const result = await response.text();
-  } catch (error) {
-    console.error(error);
-  }
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
 };
 const calender = async () => {
   // main: room_id
